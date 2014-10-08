@@ -1,0 +1,17 @@
+development:
+  smtp_settings:
+    address: smtp.gmail.com
+    port: 587
+    authentication: plain
+    user_name: USER_NAME
+    password: PASSWORD
+    enable_starttls_auto: true
+
+production:
+  smtp_settings:
+    address: smtp.gmail.com
+    port: 587
+    authentication: plain
+    user_name: USER_NAME
+    password: PASSWORD
+    enable_starttls_auto: true
