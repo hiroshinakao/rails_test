@@ -48,3 +48,33 @@ group :development, :test do
   # ダミーデータの作成
   gem 'faker'
 end
+
+group :development do
+  # rails console を pry にします
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-stack_explorer'
+  gem 'pry-byebug'
+
+  # rails のエラー画面を見やすくする
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
+  # ActiveRecord のデータをテーブル形式で表示
+  gem 'hirb'
+  gem 'hirb-unicode'
+
+  # DBの定義情報を読み取り、ModelのクラスファイルにコメントでDBの情報を書き込む
+  # モデル生成後、以下のコマンドを実行
+  # $ bundle exec annotate
+  gem 'annotate', github: 'ctran/annotate_models'
+
+  # Modelからer図を自動生成します
+  # Graphvizが必須です
+  # Macの場合
+  # $ brew install gts
+  # $ brew install graphviz
+  # ER図の出力は以下のコマンドを実行すると、 erd.pdf が出力されます
+  # $ rake erd
+  gem 'rails-erd'
+end
