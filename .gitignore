@@ -49,4 +49,5 @@ config/secrets.yml
 bower.json
 
 # 以下の設定ファイルはコミットの対象外
+config/database.yml
 config/email.yml
