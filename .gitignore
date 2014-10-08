@@ -47,3 +47,6 @@ config/secrets.yml
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
+
+# 以下の設定ファイルはコミットの対象外
+config/email.yml
