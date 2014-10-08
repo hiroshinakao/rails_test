@@ -37,3 +37,14 @@ gem 'unicorn'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+
+  # テスト毎にデータをクリアする
+  gem 'database_rewinder'
+
+  # ダミーデータの作成
+  gem 'faker'
+end
