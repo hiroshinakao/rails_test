@@ -15,4 +15,6 @@
 
 class Student < ActiveRecord::Base
   belongs_to :clazz
+  validates :clazz, presence: true
+  validates :name, presence: true
 end
