@@ -81,3 +81,4 @@ end
 
 # haml を使います
 gem 'haml-rails'
+gem 'html2haml' # ERB -> Haml の変換に使用
