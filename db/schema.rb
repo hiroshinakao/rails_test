@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008234726) do
+ActiveRecord::Schema.define(version: 20141008235213) do
 
   create_table "clazzs", force: true do |t|
     t.integer  "grade_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20141008234726) do
     t.datetime "updated_at"
   end
 
+  add_index "examinations", ["score"], name: "index_examinations_on_score"
   add_index "examinations", ["student_id"], name: "index_examinations_on_student_id"
 
   create_table "grades", force: true do |t|

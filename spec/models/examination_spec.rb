@@ -10,6 +10,7 @@
 #
 # Indexes
 #
+#  index_examinations_on_score       (score)
 #  index_examinations_on_student_id  (student_id)
 #
 
