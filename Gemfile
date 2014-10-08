@@ -78,3 +78,6 @@ group :development do
   # $ rake erd
   gem 'rails-erd'
 end
+
+# haml を使います
+gem 'haml-rails'
