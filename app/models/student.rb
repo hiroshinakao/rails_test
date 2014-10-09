@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # == Schema Information
 #
 # Table name: students
@@ -19,4 +20,11 @@ class Student < ActiveRecord::Base
 
   validates :clazz, presence: true
   validates :name, presence: true
+
+  # クラスごとの優秀な生徒を抽出
+  scope :top_score_in_each_clazz, -> {
+    joins(:examination, :clazz).
+    group(:clazz_id).
+    having("MAX(examinations.score)")
+  }
 end
