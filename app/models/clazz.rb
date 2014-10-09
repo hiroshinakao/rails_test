@@ -15,6 +15,8 @@
 
 class Clazz < ActiveRecord::Base
   belongs_to :grade
+  has_many :students
+
   validates :grade, presence: true
   validates :name, presence: true, uniqueness: { scope: :grade }
 end

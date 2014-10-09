@@ -9,5 +9,7 @@
 #
 
 class Grade < ActiveRecord::Base
+  has_many :clazzes
+
   validates :name, presence: true, uniqueness: true
 end
