@@ -9,7 +9,7 @@
 #
 
 class Grade < ActiveRecord::Base
-  has_many :clazzes
+  has_many :clazzes, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
 end

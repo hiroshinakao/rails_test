@@ -15,7 +15,7 @@
 
 class Student < ActiveRecord::Base
   belongs_to :clazz
-  has_one :examination
+  has_one :examination, dependent: :destroy
 
   validates :clazz, presence: true
   validates :name, presence: true
