@@ -9,6 +9,16 @@
 
 ActiveRecord::Base.transaction do
   DatabaseRewinder.clean_all
+  # ユーザー
+  Faker::Config.locale = :en
+  users =100.times.map do
+     User.create!(
+      email: Faker::Internet.email,
+      password: Faker::Internet.password * 2,
+      confirmed_at: DateTime.now
+    )
+  end
+  Faker::Config.locale = :ja
 
   # 学年
   %w(1 2 3).map do |grade_name|
@@ -24,5 +34,13 @@ ActiveRecord::Base.transaction do
         exam = student.create_examination!(score: Random.rand(0..100))
       end
     end
+  end
+
+  # いいね
+  users.each do |user|
+    user.likes.create!(likeable: Grade.all.sample)
+    user.likes.create!(likeable: Clazz.all.sample)
+    user.likes.create!(likeable: Student.all.sample)
+    user.likes.create!(likeable: Examination.all.sample)
   end
 end
