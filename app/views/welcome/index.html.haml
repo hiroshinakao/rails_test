@@ -1,3 +1,12 @@
+%h1 クラス別の最高得点者
+%ul
+  - @excellent_students.each do |student|
+    %li
+      = student.clazz.grade.name
+      = student.clazz.name
+      = student.name
+      = student.examination.score
+
 %h1 イイね数ランキング
 %dl
   %dt
