@@ -10,6 +10,7 @@
 
 class Grade < ActiveRecord::Base
   has_many :clazzes, dependent: :destroy
+  has_many :likes, as: :likeable, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
 end

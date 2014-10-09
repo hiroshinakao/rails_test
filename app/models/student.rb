@@ -17,6 +17,7 @@
 class Student < ActiveRecord::Base
   belongs_to :clazz
   has_one :examination, dependent: :destroy
+  has_many :likes, as: :likeable, dependent: :destroy
 
   validates :clazz, presence: true
   validates :name, presence: true

@@ -16,6 +16,7 @@
 class Clazz < ActiveRecord::Base
   belongs_to :grade
   has_many :students, dependent: :destroy
+  has_many :likes, as: :likeable, dependent: :destroy
 
   validates :grade, presence: true
   validates :name, presence: true, uniqueness: { scope: :grade }
