@@ -77,6 +77,9 @@ group :development do
   # ER図の出力は以下のコマンドを実行すると、 erd.pdf が出力されます
   # $ rake erd
   gem 'rails-erd'
+
+  # N+1問題を検出
+  gem 'bullet'
 end
 
 # haml を使います

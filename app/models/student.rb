@@ -16,6 +16,7 @@
 
 class Student < ActiveRecord::Base
   belongs_to :clazz
+  has_one :grade, through: :clazz
   has_one :examination, dependent: :destroy
   has_many :likes, as: :likeable, dependent: :destroy
 

@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
 
   def index
     # クラスごとの最高得点者
-    @excellent_students = Student.top_score_in_each_clazz
+    @excellent_students = Student.includes(:clazz, :grade, :examination).top_score_in_each_clazz
 
     #イイね数ランキング
     @grade_top = Grade.rank_of_like_count.first

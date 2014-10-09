@@ -17,6 +17,8 @@
 
 class Examination < ActiveRecord::Base
   belongs_to :student
+  has_one :clazz, through: :student
+  has_one :grade, through: :clazz
   has_many :likes, as: :likeable, dependent: :destroy
 
   validates :student, presence: true, uniqueness: true

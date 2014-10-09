@@ -2,7 +2,7 @@
 %ul
   - @excellent_students.each do |student|
     %li
-      = student.clazz.grade.name
+      = student.grade.name
       = student.clazz.name
       = student.name
       = student.examination.score
@@ -16,13 +16,18 @@
   %dt
     クラス
   %dd
+    = @clazz_top.grade.name
     = @clazz_top.name
   %dt
     生徒
   %dd
+    = @student_top.grade.name
+    = @student_top.clazz.name
     = @student_top.name
   %dt
     テスト
   %dd
+    = @examination_top.grade.name
+    = @examination_top.clazz.name
     = @examination_top.student.name
     = @examination_top.score

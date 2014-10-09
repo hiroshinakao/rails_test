@@ -44,6 +44,9 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
+    bullet (4.10.0)
+      activesupport
+      uniform_notifier (~> 1.6.0)
     byebug (3.5.1)
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
@@ -209,6 +212,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uniform_notifier (1.6.1)
     warden (1.2.3)
       rack (>= 1.0)
     yard (0.8.7.4)
@@ -220,6 +224,7 @@ DEPENDENCIES
   annotate!
   better_errors
   binding_of_caller
+  bullet
   coffee-rails (~> 4.0.0)
   database_rewinder
   devise
