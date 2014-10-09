@@ -28,4 +28,11 @@ class Student < ActiveRecord::Base
     group(:clazz_id).
     having("MAX(examinations.score)")
   }
+
+  # イイね数に並べる
+  scope :rank_of_like_count, -> {
+    joins(:likes).
+    group("students.id").
+    order("COUNT(likes.id) DESC")
+  }
 end
