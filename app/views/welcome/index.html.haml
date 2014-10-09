@@ -1,2 +1,19 @@
-%h1 Welcome#index
-%p Find me in app/views/welcome/index.html.haml
+%h1 イイね数ランキング
+%dl
+  %dt
+    学年
+  %dd
+    = @grade_top.name
+  %dt
+    クラス
+  %dd
+    = @clazz_top.name
+  %dt
+    生徒
+  %dd
+    = @student_top.name
+  %dt
+    テスト
+  %dd
+    = @examination_top.student.name
+    = @examination_top.score
