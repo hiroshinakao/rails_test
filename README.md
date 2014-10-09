@@ -1,8 +1,10 @@
 # rails_test
 
+
 ## 前提
 
 Mac の以下の環境で動作を確認しています。
+Windows では確認をしておりません。
 
 * ruby 2.1.0p0
 * SQLite version 3.7.13
@@ -14,6 +16,7 @@ Mac(homebrew)の場合
 $ brew install gts
 $ brew install graphviz
 ```
+
 
 ## 環境構築
 
@@ -29,6 +32,7 @@ $ rake db:migrate
 $ rake db:seed
 ```
 
+
 ## 確認方法
 
 サーバ起動
@@ -40,6 +44,7 @@ $ rails s
 http://localhost:3000
 にてご確認いただけます。
 
+
 ## テスト実行方法
 
 ```
@@ -49,3 +54,10 @@ $ rake spec
 
 今回、テストはモデル層のみ記載しています。
 spec/models 以下を参照ください。
+
+
+## ER図
+
+erd.pdf を参照ください
+
+テストでは学年の概念はありませんでしたが、DBの正規化目的で学年モデルを追加しております。
