@@ -67,5 +67,9 @@ RSpec.describe Student, :type => :model do
     it "イイね数が多い順に取得すること" do
       expect(Student.rank_of_like_count).to eq([@student12, @student11, @student13])
     end
+
+    it "イイね数が多い順に取得すること(Arel)" do
+      expect(Student.rank_of_like_count_arel).to eq([@student12, @student11, @student13])
+    end
   end
 end

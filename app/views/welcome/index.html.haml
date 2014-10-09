@@ -31,3 +31,28 @@
     = @examination_top.clazz.name
     = @examination_top.student.name
     = @examination_top.score
+
+%h1 イイね数ランキング(Arelを使用)
+%dl
+  %dt
+    学年
+  %dd
+    = @grade_top_arel.name
+  %dt
+    クラス
+  %dd
+    = @clazz_top_arel.grade.name
+    = @clazz_top_arel.name
+  %dt
+    生徒
+  %dd
+    = @student_top_arel.grade.name
+    = @student_top_arel.clazz.name
+    = @student_top_arel.name
+  %dt
+    テスト
+  %dd
+    = @examination_top_arel.grade.name
+    = @examination_top_arel.clazz.name
+    = @examination_top_arel.student.name
+    = @examination_top_arel.score

@@ -36,4 +36,19 @@ class Student < ActiveRecord::Base
     group("students.id").
     order("COUNT(likes.id) DESC")
   }
+
+  # イイね数に並べる(Arel)
+  scope :rank_of_like_count_arel, -> {
+    like_table = Like.arel_table
+    manager = arel_table.
+    project(Arel.sql('students.*')).
+    join(like_table, Arel::Nodes::InnerJoin).
+    on(
+      (like_table[:likeable_id].eq(arel_table[:id])).
+      and(like_table[:likeable_type].eq(self.name))
+    ).
+    group(arel_table[:id]).
+    order(like_table[:id].count.desc)
+    find_by_sql(manager.to_sql)
+  }
 end
