@@ -29,7 +29,7 @@ $ cp config/database.yml.example config/database.yml
 $ cp config/email.yml.example config/email.yml
 
 $ rake db:migrate
-$ rake db:seed
+$ rake db:seed # 初期データ(クラスや生徒など)を投入しています
 ```
 
 
@@ -60,4 +60,4 @@ spec/models 以下を参照ください。
 
 erd.pdf を参照ください
 
-テストでは学年の概念はありませんでしたが、DBの正規化目的で学年モデルを追加しております。
+課題では学年の概念はありませんでしたが、DBの正規化目的で学年モデルを追加しております。
