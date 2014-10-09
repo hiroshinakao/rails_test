@@ -27,6 +27,15 @@ RSpec.describe Student, :type => :model do
     @student21 = create(:student, clazz: @clazz2, name: Faker::Name.name)
     @student22 = create(:student, clazz: @clazz2, name: Faker::Name.name)
     @student23 = create(:student, clazz: @clazz2, name: Faker::Name.name)
+
+    Faker::Config.locale = :en
+    @user1 = create(:user, email: Faker::Internet.email, password: Faker::Internet.password * 2, confirmed_at: DateTime.now)
+    @user2 = create(:user, email: Faker::Internet.email, password: Faker::Internet.password * 2, confirmed_at: DateTime.now)
+    @user3 = create(:user, email: Faker::Internet.email, password: Faker::Internet.password * 2, confirmed_at: DateTime.now)
+    @user4 = create(:user, email: Faker::Internet.email, password: Faker::Internet.password * 2, confirmed_at: DateTime.now)
+    @user5 = create(:user, email: Faker::Internet.email, password: Faker::Internet.password * 2, confirmed_at: DateTime.now)
+    @user6 = create(:user, email: Faker::Internet.email, password: Faker::Internet.password * 2, confirmed_at: DateTime.now)
+    Faker::Config.locale = :ja
   end
 
   describe :top_score_in_each_clazz do
@@ -42,6 +51,21 @@ RSpec.describe Student, :type => :model do
     it "各クラスの最高得点者を取得すること" do
       expect(Student.top_score_in_each_clazz).
         to match_array([@student13, @student22])
+    end
+  end
+
+  describe :rank_of_like_count do
+    before do
+      @user1.likes.create(likeable: @student11)
+      @user2.likes.create(likeable: @student12)
+      @user3.likes.create(likeable: @student13)
+      @user4.likes.create(likeable: @student12)
+      @user5.likes.create(likeable: @student12)
+      @user6.likes.create(likeable: @student11)
+    end
+
+    it "イイね数が多い順に取得すること" do
+      expect(Student.rank_of_like_count).to eq([@student12, @student11, @student13])
     end
   end
 end

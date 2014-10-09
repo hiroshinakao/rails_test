@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # == Schema Information
 #
 # Table name: examinations
@@ -16,10 +17,19 @@
 
 class Examination < ActiveRecord::Base
   belongs_to :student
+  has_many :likes, as: :likeable, dependent: :destroy
+
   validates :student, presence: true, uniqueness: true
   validates :score, numericality: {
     only_integer: true,
     greater_than_or_equal_to: 0,
     less_than_or_equal_to: 100
+  }
+
+  # イイね数に並べる
+  scope :rank_of_like_count, -> {
+    joins(:likes).
+    group("examinations.id").
+    order("COUNT(likes.id) DESC")
   }
 end

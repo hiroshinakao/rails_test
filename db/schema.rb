@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008235213) do
+ActiveRecord::Schema.define(version: 20141009033007) do
 
   create_table "clazzs", force: true do |t|
     t.integer  "grade_id"
@@ -37,6 +37,17 @@ ActiveRecord::Schema.define(version: 20141008235213) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "likes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "likeable_id"
+    t.string   "likeable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "likes", ["likeable_id", "likeable_type"], name: "index_likes_on_likeable_id_and_likeable_type"
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "students", force: true do |t|
     t.integer  "clazz_id"

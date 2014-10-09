@@ -17,6 +17,7 @@
 class Student < ActiveRecord::Base
   belongs_to :clazz
   has_one :examination, dependent: :destroy
+  has_many :likes, as: :likeable, dependent: :destroy
 
   validates :clazz, presence: true
   validates :name, presence: true
@@ -26,5 +27,12 @@ class Student < ActiveRecord::Base
     joins(:examination, :clazz).
     group(:clazz_id).
     having("MAX(examinations.score)")
+  }
+
+  # イイね数に並べる
+  scope :rank_of_like_count, -> {
+    joins(:likes).
+    group("students.id").
+    order("COUNT(likes.id) DESC")
   }
 end
