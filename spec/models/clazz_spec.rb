@@ -46,5 +46,9 @@ RSpec.describe Clazz, :type => :model do
     it "イイね数が多い順に取得すること" do
       expect(Clazz.rank_of_like_count).to eq([@clazz2, @clazz1, @clazz3])
     end
+
+    it "イイね数が多い順に取得すること(Arel)" do
+      expect(Clazz.rank_of_like_count_arel).to eq([@clazz2, @clazz1, @clazz3])
+    end
   end
 end
